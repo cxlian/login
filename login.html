@@ -9,8 +9,15 @@
     <script src="./js/jquery.1.10.2.js"></script>
 </head>
 <style>
-    .con{margin-top:40px;padding:30px 20px}
-    button{width:30%}
+    .con{margin-top:40px;padding:30px 0}
+    button#btn-sub {
+        display: block;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 1.3rem;
+        height: 38px;
+        font-size:1.15rem;
+    }
 </style>
 <body>
 <header class="mui-bar mui-bar-nav">
@@ -26,13 +33,14 @@
 
             <div class="mui-input-row">
                 <label>密码</label>
-                <input type="password" class="mui-input-clear" id="myPwd" placeholder="请输入密码"><span
+                <input type="password" class="mui-input-password" id="myPwd" placeholder="请输入密码"><span
                     class="mui-icon mui-icon-clear mui-hidden"></span>
             </div>
-            <div class="mui-button-row">
-                <button class="mui-btn mui-btn-primary" id="btn-sub" type="button" onclick="return false;">登录</button>
-            </div>
+
+
+
         </form>
+    <button class="mui-btn mui-btn-primary" id="btn-sub" type="button" onclick="return false;">登录</button>
 </div>
 </body>
 <script type="text/javascript" charset="utf-8">
