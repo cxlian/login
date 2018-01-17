@@ -54,7 +54,9 @@
     $("#btn-sub").click(function () {
         var myPhone = $("#myPhone").val();
         var myPwd = $("#myPwd").val();
-        formValidate(myPhone,myPwd);
+        if(formValidate(myPhone,myPwd)){
+            window.location="index02.html"
+        };
     })
 </script>
 </html>
