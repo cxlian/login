@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改密码</title>
+    <link rel="stylesheet" href="./css/mui.min.css">
+    <script src="./js/mui.min.js"></script>
+    <script src="./js/jquery.1.10.2.js"></script>
+</head>
+<style>
+    .con {
+        margin-top: 40px;
+        padding: 30px 0
+    }
+
+    button#btn-sub {
+        display: block;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 1.3rem;
+        height: 38px;
+        font-size: 1.15rem;
+    }
+</style>
+<body>
+<header class="mui-bar mui-bar-nav"><a class="mui-action-back mui-icon mui-icon-back"></a>
+
+    <h1 class="mui-title">修改密码</h1>
+</header>
+<div class="con">
+    <form class="mui-input-group">
+        <div class="mui-input-row">
+            <label>原始密码</label>
+            <input type="password" class="mui-input-password" id="oldPwd" placeholder="请输入原始密码"><span
+                class="mui-icon mui-icon-clear mui-hidden"></span>
+        </div>
+        <div class="mui-input-row">
+            <label>新密码</label>
+            <input type="password" class="mui-input-password" id="newPwd01" placeholder="请输入新密码"><span
+                class="mui-icon mui-icon-clear mui-hidden"></span>
+        </div>
+        <div class="mui-input-row">
+            <label>确认密码</label>
+            <input type="password" class="mui-input-password" id="newPwd02" placeholder="请输入确认密码"><span
+                class="mui-icon mui-icon-clear mui-hidden"></span>
+        </div>
+    </form>
+    <button class="mui-btn mui-btn-primary" id="btn-sub" type="button" onclick="return false;">重置</button>
+</div>
+<script type="text/javascript" charset="utf-8">
+    function formValidate(oldPwd, newPwd01, newPwd02) {
+        if (oldPwd == '') {
+            mui.alert('请输入原始密码！', function () {
+            });
+        } else if (newPwd01 == '') {
+            mui.alert('请输入新密码！', function () {
+            });
+        } else if (newPwd02 == '') {
+            mui.alert('请输入确认密码！', function () {
+            });
+        } else {
+            return true;
+        }
+    }
+    $("#btn-sub").click(function () {
+        var oldPwd = $("#oldPwd").val();
+        var newPwd01 = $("#newPwd01").val();
+        var newPwd02 = $("#newPwd02").val();
+        if (formValidate(oldPwd, newPwd01, newPwd02)) {
+            mui.alert('密码重置成功', function () {
+                window.location = "index02.html"
+            });
+
+        }
+        ;
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本资料</title>
+    <link rel="stylesheet" href="./css/mui.min.css">
+    <script src="./js/mui.min.js"></script>
+    <script src="./js/jquery.1.10.2.js"></script>
+</head>
+<style>
+    .con {
+        margin-top: 44px;
+
+    }
+
+    button#btn-sub {
+        display: block;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 1.3rem;
+        height: 38px;
+        font-size: 1.15rem;
+    }
+    span.bone {
+        line-height: 40px;
+        color: #007aff;
+    }
+    .tip{font-size: 0.8rem;height: 40px;line-height: 40px;color: red;text-align: center}
+</style>
+<body>
+<header class="mui-bar mui-bar-nav"><a class="mui-action-back mui-icon mui-icon-back"></a>
+
+    <h1 class="mui-title">基本资料</h1>
+</header>
+<div class="con">
+    <div class="tip"></div>
+    <form class="mui-input-group">
+        <div class="mui-input-row">
+            <label>真实姓名</label>
+            <input type="text" class="mui-input-clear" id="myName" placeholder="请输入真实姓名"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+        </div>
+        <div class="mui-input-row">
+            <label>手机号</label>
+            <span class="bone">15259810726</span>
+        </div>
+        <div class="mui-input-row">
+            <label>身份证号</label>
+            <input type="text" class="mui-input-clear" id="myId" placeholder="请输入身份证号"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+        </div>
+        <div class="mui-input-row">
+            <label>院校</label>
+            <input type="text" class="mui-input-clear" id="mySchool" placeholder="请输入院校"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+        </div>
+        <div class="mui-input-row">
+            <label>专业</label>
+            <input type="text" class="mui-input-clear" id="myProfession" placeholder="请输入专业"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+        </div>
+        <div class="mui-input-row">
+            <label>年级</label>
+            <select name="zy" id="" class="myGrade">
+                <option value="0">请选择</option>
+                <option value="1">2017</option>
+                <option value="2">2016</option>
+                <option value="3">2015</option>
+                <option value="4">2014</option>
+                <option value="5">2013</option>
+                <option value="6">2012</option>
+                <option value="7">2011</option>
+                <option value="8">2010</option>
+                <option value="9">2009</option>
+                <option value="10">2008</option>
+                <option value="11">2007</option>
+                <option value="12">2006</option>
+                <option value="13">2005</option>
+                <option value="14">2004</option>
+                <option value="15">2003</option>
+                <option value="16">2002</option>
+                <option value="17">2001</option>
+                <option value="18">2000</option>
+                <option value="19">1999</option>
+                <option value="20">1998</option>
+                <option value="21">1997</option>
+                <option value="22">1996</option>
+                <option value="23">1995</option>
+                <option value="24">1994</option>
+            </select>
+        </div>
+        <div class="mui-input-row">
+            <label>QQ号码</label>
+            <input type="text" class="mui-input-clear" id="myQq" placeholder="请输入QQ号码"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+        </div>
+        <div class="mui-input-row">
+            <label>微信号</label>
+            <input type="text" class="mui-input-clear" id="myWechat" placeholder="请输入微信号"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+        </div>
+        <div class="mui-input-row">
+            <label>地址</label>
+            <input type="text" class="mui-input-clear" id="myAdd" placeholder="请输入地址"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+        </div>
+    </form>
+    <button class="mui-btn mui-btn-primary" id="btn-sub" type="button" onclick="return false;">保存</button>
+</div>
+<script>
+    $(function () {
+        //表单验证
+        function isChinaName(name){
+            var pattern = /^[\u4e00-\u9fa5]{2,5}$/;
+            return pattern.test(name);
+        }
+        function isMyCard(card){
+            var pattern = /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}[0-9Xx]$)/;
+            return pattern.test(card);
+        }
+        function isQQ(qq){
+            var pattern =/^[1-9][0-9]{3,13}$/;
+            return pattern.test(qq);
+        }
+        $("#myName").focus(function(){
+                $(".tip").html('真实姓名最少2个汉字，最多5个汉字');
+        });
+        $("#myId").focus(function(){
+            $(".tip").html('输入15或18位身份证');
+        });
+        $("#mySchool,#myProfession,#myWechat,#myAdd").focus(function(){
+            $(".tip").html('最少1个字符，最多50个字符');
+        });
+        $("#myQq").focus(function(){
+            $(".tip").html('输入4-14位的QQ号');
+        });
+        $("#btn-sub").click(function () {
+            mui.alert('修改成功', function () {
+            });
+        })
+    });
+</script>
+</body>
+</html>
