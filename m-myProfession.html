@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>修改专业</title>
+    <link rel="stylesheet" href="./css/mui.min.css">
+    <script src="./js/mui.min.js"></script>
+    <script src="./js/jquery.1.10.2.js"></script>
+</head>
+<style>
+    .con{height: 44px;}
+
+    button{
+        display: block;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 1.3rem;
+        height: 38px;
+        font-size: 1.15rem!important;
+    }
+</style>
+<body>
+<header class="mui-bar mui-bar-nav"><a class="mui-action-back mui-icon mui-icon-back"></a>
+
+    <h1 class="mui-title">修改专业</h1><a href="index02.html" class="mui-btn-link mui-pull-right">首页</a>
+</header>
+<div class="con"></div>
+<input id="myProfession" type="text" style="margin-top: 20px;border:none;height: 40px;">
+<p style="text-align: center">最少1个字符，最多50个字符</p>
+<button class="mui-btn mui-btn-primary" id="btn-sub" type="button" onclick="return false;">保存</button>
+</body>
+<script>
+    $(function () {
+        //表单验证
+        function isCharNum(myProfession){
+            var pattern = /^.{1,50}$/;
+            return pattern.test(myProfession);
+        }
+
+        $("#btn-sub").click(function () {
+            var myProfession=$("#myProfession").val();
+            if(!isCharNum(myProfession)){
+                mui.alert('填写格式错误', function () {
+                });
+            }else{
+                mui.alert('修改成功', function () {
+                    window.location="my-msg.html"
+                });
+            };
+
+        })
+    });
+</script>
+</html>
